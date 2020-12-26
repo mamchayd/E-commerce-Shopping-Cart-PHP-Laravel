@@ -11,7 +11,17 @@
 |
 */
 
-Route::get('/', [
+Route::get('/products', [
     'uses' => 'ProductController@getIndex',
     'as' => 'product.index'
+]);
+
+Route::get('/carts', [
+    'uses' => 'CartController@getIndex',
+    'as' => 'cart.index'
+]);
+
+Route::post('/carts/{id}',[
+    'produits' => 'ProductController@addToCart',
+    'as' => 'product.addToCart'
 ]);
